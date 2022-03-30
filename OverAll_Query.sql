@@ -1,0 +1,3 @@
+SELECT IIf([pick_appoint_start] Is Null And [delivery_appoint_start] Is Null,DateAdd("n",10,DateAdd("h",6,DateSerial(Year(Date()),Month(Date())+1,0))),IIf([pick_appoint_start] Is Null,[delivery_appoint_start],[pick_appoint_start])) AS Action_Date, 
+Month([action_date]) AS M, DatePart("ww",[action_date]) AS Week, DatePart("q",[action_date]) AS Qrt, Year([action_date]) AS Y, All_Loads.*
+FROM All_Loads;
